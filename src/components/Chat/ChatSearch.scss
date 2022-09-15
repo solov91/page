@@ -1,0 +1,17 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.chat-search {
+  border-bottom: 1px solid $c_gray_soft;
+
+  &__form {
+    padding: $size_2xs;
+
+    input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: $c_white_color;
+    }
+  }
+}

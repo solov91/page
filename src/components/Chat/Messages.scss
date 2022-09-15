@@ -1,0 +1,7 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.messages {
+  background-color: $c_gray_light;
+  padding: $size_2xs;
+}

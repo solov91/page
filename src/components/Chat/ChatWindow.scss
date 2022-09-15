@@ -1,0 +1,15 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.chat {
+  flex: 2;
+
+  &__info {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: $c_blue_theme_medium;
+    padding: $size_xs;
+    color: $c_gray_light;
+  }
+}

@@ -1,0 +1,95 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.authorization {
+  background-color: $c_background;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $size_xs;
+    background-color: $c_white_color;
+    padding: $size_md $size_4xl;
+    border-radius: 10px;
+
+    .logo {
+      color: $c_primary_color;
+      font-weight: bold;
+      font-size: $size_md;
+    }
+
+    .title {
+      color: $c_primary_color;
+      font-size: $size_xs;
+    }
+
+    input {
+      padding: $size_sm;
+      border: none;
+      border-bottom: 1px solid $c_background;
+      background-color: inherit;
+      min-width: 300px;
+
+      &::placeholder {
+        color: $c_gray_soft;
+        font-size: $size_xs;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $size_sm;
+      margin-bottom: $size_md;
+
+      #file {
+        display: none;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: $size_xs;
+        cursor: pointer;
+        color: $c_gray_soft;
+        font-size: $size_sm;
+
+        img {
+          width: 32px;
+        }
+      }
+
+      button {
+        border: none;
+        background-color: $c_primary_color;
+        color: $c_white_color;
+        padding: $size_sm;
+        font-weight: bold;
+        border: none;
+        border-radius: $size_3xs;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__switcher {
+    color: $c_primary_color;
+    opacity: 0.8;
+    font-size: $size_xs;
+
+    button {
+      border: none;
+      background-color: inherit;
+      font-size: inherit;
+      color: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: $size_3xs;
+    }
+  }
+}

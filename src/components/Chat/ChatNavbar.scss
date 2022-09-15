@@ -1,0 +1,38 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.chat-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $c_blue_theme_deep;
+  height: 50px;
+  padding: $size_xs;
+  color: $c_white_color;
+
+  .logo {
+    font-weight: bold;
+  }
+
+  &__user-info {
+    display: flex;
+    gap: $size_2xs;
+
+    img {
+      height: 24px;
+      width: 24px;
+      background-color: $c_white_color;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    button {
+      background-color: $c_blue_theme_dense;
+      color: $c_white_color;
+      font-size: $size_xs;
+      border: none;
+      cursor: pointer;
+      padding: $size_3xs;
+    }
+  }
+}

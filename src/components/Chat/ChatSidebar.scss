@@ -1,0 +1,40 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.chat-sidebar {
+  flex: 1;
+  background-color: $c_blue_theme_dense;
+}
+
+.chat-lists {
+  padding: $size_2xs;
+  display: flex;
+  align-items: center;
+  gap: $size_2xs;
+  color: $c_white_color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $c_blue_theme_deep;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $c_white_color;
+    object-fit: cover;
+  }
+
+  .user-info {
+    span {
+      font-size: $size_sm;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: $size_xs;
+      color: $c_gray_medium;
+    }
+  }
+}

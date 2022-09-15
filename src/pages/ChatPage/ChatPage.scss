@@ -1,0 +1,19 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.chat-page {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: $c_background;
+
+  &__container {
+    border: 1px solid $c_white_color;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+  }
+}
