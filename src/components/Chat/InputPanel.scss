@@ -4,4 +4,44 @@
 .input-panel {
   height: 50px;
   background-color: $c_white_color;
+  padding: $size_2xs;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  #file {
+    display: none;
+  }
+
+  &__text-field {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: $c_dark_color;
+    font-size: $size_sm;
+    background-color: inherit;
+
+    &::placeholder {
+      color: $c_gray_soft;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: $size_xs;
+
+    img, label {
+      height: 24px;
+      cursor: pointer;
+    }
+
+    button {
+      border: none;
+      padding: $size_2xs $size_xs;
+      color: $c_white_color;
+      background-color: $c_primary_color;
+      cursor: pointer;
+    }
+  }
 }

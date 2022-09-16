@@ -1,0 +1,51 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+@import 'src/style/screen.scss';
+
+.message {
+  display: flex;
+  gap: $size_m;
+  margin-bottom: $size_m;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    color: $c_gray_soft;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: $size_xs;
+
+    p {
+      background-color: $c_white_color;
+      padding: $size_2xs $size_xs;
+      border-radius: 0px $size_xs $size_xs $size_xs;
+      min-width: max-content;
+    }
+  }
+
+  &.owner {
+    flex-direction: row-reverse;
+
+    .message__text {
+      align-items: flex-end;
+
+      p {
+        background-color: $c_primary_color;
+        color: $c_white_color;
+        border-radius: $size_xs 0px $size_xs $size_xs
+      }
+    }
+  }
+}

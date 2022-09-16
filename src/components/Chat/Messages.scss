@@ -4,4 +4,10 @@
 .messages {
   background-color: $c_gray_light;
   padding: $size_2xs;
+  height: calc(100% - 100px);
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
