@@ -19,7 +19,7 @@ import './ChatSearch.scss';
 
 export const ChatSearch = () => {
   const [username, setUserName] = useState('');
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState<any>(null);
   const [error, setError] = useState(false);
   const { isAuth } = useAuth();
 

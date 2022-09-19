@@ -6,11 +6,15 @@ import { auth } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
 
 import './ChatNavbar.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const ChatNavbar = () => {
+  const navigate = useNavigate();
+
   const handleSignOut = useCallback(() => {
-    signOut(auth)
-  }, []);
+    signOut(auth);
+    navigate('/');
+  }, [navigate]);
 
   const { isAuth } = useAuth();
 

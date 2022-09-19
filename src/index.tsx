@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 
 import App from './App';
 import { AuthContextProvider } from './context/AuthContext';
+import { ChatContextProvider } from './context/ChatContext';
 
 import './index.scss';
 
@@ -10,6 +11,8 @@ const root = createRoot(container);
 
 root.render(
     <AuthContextProvider>
-        <App />
+        <ChatContextProvider>
+            <App />
+        </ChatContextProvider>
     </AuthContextProvider>
 );

@@ -30,8 +30,7 @@ export const Registration = () => {
       const storageRef = ref(storage, `${displayName + date}`);
 
       await uploadBytesResumable(storageRef, file).then(() => {
-        getDownloadURL(storageRef)
-        .then(async (downloadURL) => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
           try {
             await updateProfile(res.user, {
               displayName,
