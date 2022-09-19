@@ -7,17 +7,25 @@
   gap: $size_m;
   margin-bottom: $size_m;
 
+  &__date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-weight: 300;
     color: $c_gray_soft;
+    font-size: $size_xs;
 
     img {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 
@@ -31,7 +39,6 @@
       background-color: $c_white_color;
       padding: $size_2xs $size_xs;
       border-radius: 0px $size_xs $size_xs $size_xs;
-      min-width: max-content;
     }
   }
 

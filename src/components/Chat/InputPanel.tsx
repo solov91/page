@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 import {
   arrayUnion,
   doc,
@@ -8,6 +8,7 @@ import {
   Timestamp,
   updateDoc
 } from 'firebase/firestore';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 import { db, storage } from '../../firebase';
 
@@ -15,11 +16,9 @@ import { useAuth } from '../../context/AuthContext';
 import { useChats } from '../../context/ChatContext';
 
 import Img from '../../images/img.png';
-import Attach from '../../images/attach.png';
 
 
 import './InputPanel.scss'
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 export const InputPanel = () => {
   const [text, setText] = useState('');
@@ -28,15 +27,11 @@ export const InputPanel = () => {
   const { isAuth } = useAuth();
   const { data } = useChats();
 
-  const handleImg = (event: any) => {
-    setImg(event.target.files[0])
-  }
-
-  const handleText = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value)
-  }
+  const handleText = (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value);
 
   const handleSend = async () => {
+    setText('');
+
     if (img) {
       const storageRef = ref(storage, uuid());
 
@@ -48,7 +43,7 @@ export const InputPanel = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            await updateDoc(doc(db, "chats", data.chatId), {
+            await updateDoc(doc(db, 'chats', data.chatId), {
               messages: arrayUnion({
                 id: uuid(),
                 text,
@@ -61,7 +56,7 @@ export const InputPanel = () => {
         }
       );
     } else {
-      await updateDoc(doc(db, "chats", data.chatId), {
+      await updateDoc(doc(db, 'chats', data.chatId), {
         messages: arrayUnion({
           id: uuid(),
           text,
@@ -71,21 +66,19 @@ export const InputPanel = () => {
       });
     }
 
-    await updateDoc(doc(db, "userChats", isAuth.uid), {
-      [data.chatId + ".lastMessage"]: {
+    await updateDoc(doc(db, 'userChats', isAuth.uid), {
+      [data.chatId + '.lastMessage']: {
         text,
       },
-      [data.chatId + ".date"]: serverTimestamp(),
+      [data.chatId + '.date']: serverTimestamp(),
     });
 
-    await updateDoc(doc(db, "userChats", data.user.uid), {
-      [data.chatId + ".lastMessage"]: {
+    await updateDoc(doc(db, 'userChats', data.user.uid), {
+      [data.chatId + '.lastMessage']: {
         text,
       },
-      [data.chatId + ".date"]: serverTimestamp(),
+      [data.chatId + '.date']: serverTimestamp(),
     });
-
-    setText("");
     setImg(null);
   };
   
@@ -99,16 +92,19 @@ export const InputPanel = () => {
         value={text}
       />
       <div className="input-panel__btn">
-        <img src={Attach} alt="" />
-        <input
+      <input
           type="file"
           id="file"
-          onChange={handleImg}
+          onChange={(e:any) => setImg(e.target.files[0])}
         />
         <label htmlFor="file">
           <img src={Img} alt="" />
         </label>
-        <button onClick={handleSend}>Отправить</button>
+        <button
+          onClick={handleSend}
+        >
+          Отправить
+        </button>
       </div>
     </div>
   );

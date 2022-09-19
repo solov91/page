@@ -3,9 +3,10 @@
 
 .messages {
   background-color: $c_gray_light;
-  padding: $size_2xs;
+  padding: $size_md $size_2xs $size_2xs $size_2xs;
   height: calc(100% - 100px);
   overflow: scroll;
+  position: relative;
 
   &::-webkit-scrollbar {
     display: none;

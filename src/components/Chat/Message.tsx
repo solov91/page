@@ -4,9 +4,10 @@ import { useAuth } from '../../context/AuthContext';
 import { useChats } from '../../context/ChatContext';
 
 import './Message.scss';
+import { TMessages } from './Messages';
 
 type MessageType = {
-  message: any
+  message: TMessages
 }
 
 export const Message:React.FC<MessageType> = ({ message }) => {
@@ -17,7 +18,18 @@ export const Message:React.FC<MessageType> = ({ message }) => {
 
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [message])
+  }, [message]);
+
+  const formatTime = (timestamp: Date) => {
+    const time = new Date(timestamp).toLocaleTimeString("ru-RU");
+    const date = new Date(timestamp).toLocaleDateString("ru-RU");
+
+    return (
+      <div className="message__date">
+        <span>{`${time.slice(0, 5)}`}</span>
+        <span>{`${date}`}</span>
+      </div>);
+  };
 
   return (
     <div
@@ -32,7 +44,7 @@ export const Message:React.FC<MessageType> = ({ message }) => {
           }
           alt=""
         />
-        <span>just now</span>
+        {formatTime(message.date.toDate())}
       </div>
       <div className="message__text">
         <p>{message.text}</p>
