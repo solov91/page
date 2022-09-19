@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+
 import { Login, Registration } from '../../components/Authorization';
 
 import './AuthorizationPage.scss';

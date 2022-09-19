@@ -5,11 +5,15 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { auth } from '../../firebase';
 
+import Loader from '../common/Loader';
+
 export const Login = () => {
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
+    setLoading(true);
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
@@ -20,6 +24,7 @@ export const Login = () => {
     } catch (err) {
       setError(true);
     }
+    setLoading(false);
   };
 
   return (
@@ -30,6 +35,7 @@ export const Login = () => {
         <button>Войти</button>
       </form>
       {error ? <span>Что-то пошло не так</span> : null}
+      {loading && <Loader />}
     </React.Fragment>
   )
 }

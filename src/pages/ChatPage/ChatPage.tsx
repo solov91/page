@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ChatWindow, ChatSidebar } from '../../components/Chat';
 
@@ -8,9 +9,14 @@ import './ChatPage.scss'
 
 export const ChatPage = () => {
   const { isAuth } = useAuth();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!isAuth) return navigate('/')
+  }, [isAuth, navigate])
 
   if (!isAuth) return <Link to="/authorization">Сначала зарегистрируйтесь</Link>
-  
+
   return (
     <div className="chat-page">
       <div className="chat-page__container">

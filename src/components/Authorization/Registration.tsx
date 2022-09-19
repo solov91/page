@@ -7,6 +7,10 @@ import { doc, setDoc } from 'firebase/firestore'
 
 import { auth, db, storage } from '../../firebase';
 
+import Loader from '../common/Loader';
+
+import defaulAvatar from '../../images/default-avatar.svg'
+
 import addAvatar from '../../images/addAvatar.png';
 
 export const Registration = () => {
@@ -71,7 +75,7 @@ export const Registration = () => {
         </label>
         <button>Зарегистрироваться</button>
       </form>
-      {loading && "Подождите..."}
+      {loading && <Loader />}
       {error ? <span>Что-то пошло не так</span> : null}
     </React.Fragment>
   )
