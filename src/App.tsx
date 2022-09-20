@@ -7,6 +7,7 @@ import {
 import AuthorizationPage from './pages/AuthorizationPage';
 import { HomePage } from './pages/HomePage/HomePage';
 import { ChatPage } from './pages/ChatPage/ChatPage';
+
 import { PageNotFound } from './components/common/PageNotFound/PageNotFound';
 
 function App() {

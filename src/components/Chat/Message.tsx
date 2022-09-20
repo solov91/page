@@ -3,8 +3,9 @@ import { useEffect, useRef } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useChats } from '../../context/ChatContext';
 
-import './Message.scss';
 import { TMessages } from './Messages';
+
+import './Message.scss';
 
 type MessageType = {
   message: TMessages

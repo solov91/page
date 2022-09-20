@@ -21,6 +21,7 @@
     img {
       height: 24px;
       width: 24px;
+      outline: 1px solid $c_primary_color;
       background-color: $c_white_color;
       border-radius: 50%;
       object-fit: cover;

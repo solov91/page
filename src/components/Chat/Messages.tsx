@@ -17,7 +17,9 @@ export type TMessages = {
 }
 
 export const Messages = () => {
-  const [messages, setMessages] = useState<any>([]);
+  const [messages, setMessages] = useState<TMessages[]>([]);
+
+  console.log(messages)
 
   const { data } = useChats();
 

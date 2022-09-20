@@ -22,12 +22,19 @@ import './InputPanel.scss'
 
 export const InputPanel = () => {
   const [text, setText] = useState('');
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState<File>();
 
   const { isAuth } = useAuth();
   const { data } = useChats();
 
   const handleText = (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value);
+  const handleFileEnter = (event: React.FormEvent) => {
+    const file = (event.target as HTMLInputElement).files
+
+    if (file && file.length > 0) {
+      setImg(file[0])
+    }
+  };
 
   const handleSend = async () => {
     setText('');
@@ -79,7 +86,7 @@ export const InputPanel = () => {
       },
       [data.chatId + '.date']: serverTimestamp(),
     });
-    setImg(null);
+    setImg(undefined);
   };
   
   return (
@@ -95,7 +102,7 @@ export const InputPanel = () => {
       <input
           type="file"
           id="file"
-          onChange={(e:any) => setImg(e.target.files[0])}
+          onChange={handleFileEnter}
         />
         <label htmlFor="file">
           <img src={Img} alt="" />
