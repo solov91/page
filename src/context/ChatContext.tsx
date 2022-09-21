@@ -7,10 +7,25 @@ import React, {
 
 import { useAuth } from './AuthContext';
 
+type TData = {
+  chatId: string,
+  user: {
+    displayName: string,
+    photoURL: string,
+    uid: string,
+    img: string,
+  } 
+}
+
+type ChatState = {
+  chatId?: string,
+  users?: Object,
+}
+
 
 type ChatContextType = {
   dispatch: any,
-  data: any,
+  data: TData,
 }
 
 export const ChatContext = createContext({});
@@ -18,7 +33,7 @@ export const ChatContext = createContext({});
 export const ChatContextProvider:React.FC<PropsWithChildren> = ({ children }) => {
   const { isAuth } = useAuth();
 
-  const INITIAL_STATE = {
+  const INITIAL_STATE: ChatState = {
     chatId: 'null',
     users: {},
   };

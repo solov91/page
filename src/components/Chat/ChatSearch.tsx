@@ -10,6 +10,7 @@ import {
   updateDoc,
   serverTimestamp,
   getDoc,
+  DocumentData,
 } from "firebase/firestore";
 
 import { db } from '../../firebase';
@@ -46,11 +47,10 @@ export const ChatSearch = () => {
   };
 
   const handleSelect = async () => {
-    const combinedId = 
-    isAuth.uid > user.uid 
+    const combinedId = isAuth.uid > user.uid
       ? isAuth.uid + user.uid
       : user.uid + isAuth.uid;
-
+    
     try {
       const res = await getDoc(doc(db, 'chats', combinedId));
 

@@ -18,8 +18,6 @@ export const ChatNavbar = () => {
 
   const { isAuth } = useAuth();
 
-  console.log(isAuth.photoURL)
-
   return (
     <div className="chat-navbar">
       <span className="logo">Чат</span>

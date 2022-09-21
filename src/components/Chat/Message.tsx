@@ -5,6 +5,8 @@ import { useChats } from '../../context/ChatContext';
 
 import { TMessages } from './Messages';
 
+import defaultAvatar from '../../images/default-avatar.svg';
+
 import './Message.scss';
 
 type MessageType = {
@@ -32,24 +34,25 @@ export const Message:React.FC<MessageType> = ({ message }) => {
       </div>);
   };
 
+  const avatar = message.senderId === isAuth.uid ? isAuth.photoURL : data.user.photoURL;
+  const messageText = message.text ? <p>{message.text}</p> : null;
+  const messageImg = message.img ? <a target="_blank" href={message.img} rel="noreferrer"><img src={message.img} alt="" /></a> : null
+
   return (
     <div
       ref={ref}
-      className={`message ${message.senderId === isAuth.uid && 'owner'}`}
+      className={message.senderId === isAuth.uid ? 'message owner' : 'message'}
     >
       <div className="message__info">
         <img
-          src={message.senderId === isAuth.uid
-            ? isAuth.photoURL 
-            : data.user.photoURL
-          }
+          src={avatar || defaultAvatar}
           alt=""
         />
         {formatTime(message.date.toDate())}
       </div>
       <div className="message__text">
-        <p>{message.text}</p>
-        {message.img && <img src={message.img} alt="" />}
+        {messageText}
+        {messageImg}
       </div>
     </div>
   )

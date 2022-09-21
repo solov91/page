@@ -27,7 +27,11 @@ export const InputPanel = () => {
   const { isAuth } = useAuth();
   const { data } = useChats();
 
-  const handleText = (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value);
+  const handleKeyDownSend = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    e.code === 'Enter' && handleSend()
+  };
+
+  const handleTextEnter = (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value);
   const handleFileEnter = (event: React.FormEvent) => {
     const file = (event.target as HTMLInputElement).files
 
@@ -39,15 +43,18 @@ export const InputPanel = () => {
   const handleSend = async () => {
     setText('');
 
+    if(!Boolean(img?.name
+        .split('.')
+        .find(a => a === 'png' || a === 'jpg' || a === 'jpeg' || a === 'svg'))) {
+          return alert('Выберете файл с раширением jpg, jpeg, png, svg')
+        }
+
     if (img) {
       const storageRef = ref(storage, uuid());
 
       const uploadTask = uploadBytesResumable(storageRef, img);
 
       uploadTask.on('state_changed',
-        (error) => {
-          throw error
-        },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateDoc(doc(db, 'chats', data.chatId), {
@@ -95,7 +102,8 @@ export const InputPanel = () => {
         className="input-panel__text-field"
         type="text"
         placeholder="Напишите что-нибудь..."
-        onChange={handleText}
+        onChange={handleTextEnter}
+        onKeyDown={handleKeyDownSend}
         value={text}
       />
       <div className="input-panel__btn">

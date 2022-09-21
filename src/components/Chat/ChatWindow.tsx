@@ -11,7 +11,6 @@ export const ChatWindow = () => {
     <div className="chat">
       <div className="chat__info">
         <span>{data.user?.displayName}</span>
-
       </div>
       <Messages />
       <InputPanel />

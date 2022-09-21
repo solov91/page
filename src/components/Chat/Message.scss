@@ -34,11 +34,16 @@
     display: flex;
     flex-direction: column;
     gap: $size_xs;
+    align-items: flex-start;
 
     p {
       background-color: $c_white_color;
       padding: $size_2xs $size_xs;
       border-radius: 0px $size_xs $size_xs $size_xs;
+    }
+
+    img {
+      max-width: 50%;
     }
   }
 
@@ -47,6 +52,10 @@
 
     .message__text {
       align-items: flex-end;
+      
+      a {
+        text-align: right;
+      }
 
       p {
         background-color: $c_primary_color;
