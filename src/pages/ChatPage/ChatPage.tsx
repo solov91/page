@@ -12,10 +12,8 @@ export const ChatPage = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isAuth) return navigate('/')
-  }, [isAuth, navigate])
-
-  if (!isAuth) return <Link to="/authorization">Сначала зарегистрируйтесь</Link>
+    if (!isAuth) return navigate('/');
+  }, [isAuth, navigate]);
 
   return (
     <div className="chat-page">

@@ -10,8 +10,9 @@ import {
   updateDoc,
   serverTimestamp,
   getDoc,
-  DocumentData,
 } from "firebase/firestore";
+
+import defaultAvatar from '../../images/default-avatar.svg';
 
 import { db } from '../../firebase';
 import { useAuth } from '../../context/AuthContext';
@@ -97,7 +98,7 @@ export const ChatSearch = () => {
       {error && <span>Пользователь не найден</span>}
       {user &&
         <div className="chat-lists" onClick={handleSelect}>
-          <img src={user.photoURL || ''} alt="" />
+          <img src={user.photoURL || defaultAvatar} alt="" />
           <div className="user-info">
             <span>{user.displayName}</span>
           </div>

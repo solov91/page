@@ -1,8 +1,14 @@
-import { Link } from 'react-router-dom';
+import Navigation from '../../components/Navigation';
+import { useAuth } from '../../context/AuthContext';
 
-export const HomePage = () => (
-  <div>
-    <Link to="/chat">К чату</Link>
-    <Link to="/authorization">К авторизации</Link>
-  </div>
-);
+import './HomePage.scss';
+
+export const HomePage = () => {
+  const { isAuth } = useAuth();
+
+  return (
+    <div className="home">
+      <Navigation isAuth={isAuth} />
+    </div>
+  );
+};

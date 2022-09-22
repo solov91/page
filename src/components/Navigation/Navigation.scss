@@ -1,0 +1,31 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.navigation {
+  height: 50px;
+  width: 100vw;
+  background-color: $c_primary_color;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  a, &__sing-out {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: $c_white_color;
+    margin-right: $size_sm;
+    padding: $size_2xs;
+    font-size: $size_sm;
+
+    &:hover {
+      outline: 1px solid $c_white_color;
+    }
+
+    &:active {
+      background-color: $c_white_color;
+      color: $c_dark_color;
+    }
+  }
+}

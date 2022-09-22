@@ -28,7 +28,7 @@ export const InputPanel = () => {
   const { data } = useChats();
 
   const handleKeyDownSend = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.code === 'Enter' && handleSend()
+    if (e.code === 'Enter' || e.code === "NumpadEnter") handleSend()
   };
 
   const handleTextEnter = (event: React.ChangeEvent<HTMLInputElement>) => setText(event.target.value);
@@ -41,16 +41,19 @@ export const InputPanel = () => {
   };
 
   const handleSend = async () => {
-    setText('');
+    if (text.trim().length === 0) return
 
-    if(!Boolean(img?.name
-        .split('.')
-        .find(a => a === 'png' || a === 'jpg' || a === 'jpeg' || a === 'svg'))) {
-          return alert('Выберете файл с раширением jpg, jpeg, png, svg')
-        }
+    setText('');
 
     if (img) {
       const storageRef = ref(storage, uuid());
+
+      if(!Boolean(img?.name
+        .split('.')
+        .find(a => a === 'png' || a === 'jpg' || a === 'jpeg' || a === 'svg'))) {
+          setImg(undefined);
+          return alert('Выберете файл с раширением jpg, jpeg, png, svg')
+        }
 
       const uploadTask = uploadBytesResumable(storageRef, img);
 
