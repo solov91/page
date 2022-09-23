@@ -1,15 +1,23 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Login, Registration } from '../../components/Authorization';
+import { useAuth } from '../../context/AuthContext';
 
 import './AuthorizationPage.scss';
 
 export const AuthorizationPage = () => {
+  const navigate = useNavigate()
+  const { isAuth } = useAuth();
   const [switchAuth, setSwitchAuth] = useState(true);
 
   const handleSwitchAuthorization = useCallback(() => {
     setSwitchAuth(!switchAuth);
-  }, [switchAuth])
+  }, [switchAuth]);
+
+  useEffect(() => {
+    if (!isAuth) return navigate('/');
+  }, [isAuth, navigate]);
 
   return (
     <div className="authorization">

@@ -1,0 +1,11 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.calendar__monitor {
+  display: flex;
+  justify-content: space-between;
+  background-color: $c_blue_theme_dense;
+  color: $c_white_color;
+  padding: $size_sm;
+  position: relative;
+}

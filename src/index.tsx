@@ -4,8 +4,6 @@ import App from './App';
 import { AuthContextProvider } from './context/AuthContext';
 import { ChatContextProvider } from './context/ChatContext';
 
-import './index.scss';
-
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 

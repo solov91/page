@@ -1,0 +1,21 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.calendar {
+  min-height: calc(100vh - $navbar_height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $c_white_color;
+
+  &__container {
+    min-width: 90vw;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px $c_blue_theme_soft;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: $c_white_color;
+  }
+}

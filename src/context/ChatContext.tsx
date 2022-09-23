@@ -5,27 +5,26 @@ import React, {
   useReducer,
 } from 'react';
 
-import { useAuth } from './AuthContext';
+import { DocumentData } from 'firebase/firestore';
 
-type TData = {
-  chatId: string,
-  user: {
-    displayName: string,
-    photoURL: string,
-    uid: string,
-    img: string,
-  } 
-}
+import { useAuth } from './AuthContext';
 
 type ChatState = {
   chatId?: string,
   users?: Object,
 }
 
+type ChatAtions = {
+  type: string
+  payload: {
+    uid: string
+  }
+}
+
 
 type ChatContextType = {
-  dispatch: any,
-  data: TData,
+  dispatch: React.Dispatch<DocumentData>,
+  data: DocumentData,
 }
 
 export const ChatContext = createContext({});
@@ -38,7 +37,7 @@ export const ChatContextProvider:React.FC<PropsWithChildren> = ({ children }) =>
     users: {},
   };
 
-  const chatReducer = (state: any, action: any) => {
+  const chatReducer = (state: ChatState, action: ChatAtions) => {
     switch (action.type) {
       case 'CHANGE_USER':
         return {

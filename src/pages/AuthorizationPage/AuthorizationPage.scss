@@ -2,8 +2,7 @@
 @import 'src/style/sizes.scss';
 
 .authorization {
-  background-color: $c_background;
-  height: 100vh;
+  height: calc(100vh - $navbar_height);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +15,7 @@
     background-color: $c_white_color;
     padding: $size_md $size_4xl;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px $c_blue_theme_soft;
 
     .logo {
       color: $c_primary_color;
