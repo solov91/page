@@ -16,7 +16,7 @@ export const AuthorizationPage = () => {
   }, [switchAuth]);
 
   useEffect(() => {
-    if (!isAuth) return navigate('/');
+    if (isAuth) return navigate('/');
   }, [isAuth, navigate]);
 
   return (
