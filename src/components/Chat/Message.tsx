@@ -25,12 +25,10 @@ export const Message:React.FC<MessageType> = ({ message }) => {
 
   const formatTime = (timestamp: Date) => {
     const time = new Date(timestamp).toLocaleTimeString("ru-RU");
-    const date = new Date(timestamp).toLocaleDateString("ru-RU");
 
     return (
       <div className="message__date">
         <span>{`${time.slice(0, 5)}`}</span>
-        <span>{`${date}`}</span>
       </div>);
   };
 

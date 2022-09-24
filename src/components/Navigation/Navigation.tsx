@@ -5,9 +5,9 @@ import { signOut, User } from 'firebase/auth';
 
 import { auth } from '../../firebase';
 import { routes } from '../../constants';
+import classNames from 'classnames';
 
 import './Navigation.scss';
-import classNames from 'classnames';
 
 type NavigationProps = {
   isAuth: User

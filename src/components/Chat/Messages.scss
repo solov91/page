@@ -8,6 +8,19 @@
   overflow: scroll;
   position: relative;
 
+  &__date {
+    text-align: center;
+    margin-bottom: $size_xs;
+
+    span {
+      background-color: $c_background;
+      padding: $size_3xs $size_2xs;
+      border-radius: $size_xs;
+      font-size: $size_xs;
+      color: $c_white_color;
+    }
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
