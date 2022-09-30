@@ -1,8 +1,10 @@
-import { InputPanel } from './InputPanel';
-import { Messages } from './Messages';
+import React from "react";
+import { InputPanel } from "./InputPanel";
+import { Messages } from "./Messages";
 
-import './ChatWindow.scss';
-import { useChats } from '../../context/ChatContext';
+import { useChats } from "context/ChatContext";
+
+import "./ChatWindow.scss";
 
 export const ChatWindow = () => {
   const { data } = useChats();

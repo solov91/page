@@ -1,7 +1,7 @@
-import './Title.scss'
+import React from "react";
+
+import "./Title.scss";
 
 export const Title = () => {
-  return (
-    <div className="calendar__title">Title</div>
-  );
+  return <div className="calendar__title">Title</div>;
 };

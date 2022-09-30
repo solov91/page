@@ -9,13 +9,13 @@
   color: $c_white_color;
 
   &__container {
-    min-width: 90vw;
+    min-width: 850px;
     height: 600px;
     display: flex;
     flex-direction: column;
     box-shadow: 5px 5px 5px $c_blue_theme_soft;
     border-radius: 10px;
     overflow: hidden;
-    background-color: $c_white_color;
+    background-color: $c_blue_theme_deep;
   }
 }

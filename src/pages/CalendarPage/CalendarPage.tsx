@@ -1,7 +1,9 @@
 
-import { CalendarGrid } from '../../components/Calendar';
-import { Monitor } from '../../components/Calendar';
-import { Title } from '../../components/Calendar';
+import React from 'react';
+
+import { CalendarGrid } from 'components/Calendar';
+import { Monitor } from 'components/Calendar';
+import { Title } from 'components/Calendar';
 
 import './CalendarPage.scss';
 

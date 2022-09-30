@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const DayShowComponent = () => {
-  return (
-    <div>DayShowComponent</div>
-  )
-}
+  return <div>DayShowComponent</div>;
+};

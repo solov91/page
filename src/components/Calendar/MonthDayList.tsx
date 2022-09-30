@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { CalendarCell } from './CalendarCell';
 
-export const MonthDayList = () => {
+export const MonthDayList:React.FC = () => {
+
   return (
-    <div>MonthDayList</div>
+    <div><CalendarCell /></div>
   )
 }

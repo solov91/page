@@ -1,18 +1,19 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { ChatWindow, ChatSidebar } from '../../components/Chat';
+import { ChatWindow, ChatSidebar } from "components/Chat";
 
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from "context/AuthContext";
 
-import './ChatPage.scss'
+import "./ChatPage.scss";
 
 export const ChatPage = () => {
   const { isAuth } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) return navigate('/');
+    if (!isAuth) return navigate("/");
   }, [isAuth, navigate]);
 
   return (

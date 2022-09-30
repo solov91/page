@@ -1,0 +1,14 @@
+@import 'src/style/color.scss';
+@import 'src/style/sizes.scss';
+
+.calendar__header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  &-container {
+    min-height: 24px;
+    min-width: 120px;
+    background-color: $c_blue_theme_dense;
+    color: $c_white_color;
+  }
+}

@@ -1,7 +1,9 @@
-import { ChatNavbar } from './ChatNavbar';
-import { ChatSearch } from './ChatSearch';
-import { ChatsList } from './ChatsList';
-import './ChatSidebar.scss';
+import React from "react";
+
+import { ChatNavbar } from "./ChatNavbar";
+import { ChatSearch } from "./ChatSearch";
+import { ChatsList } from "./ChatsList";
+import "./ChatSidebar.scss";
 
 export const ChatSidebar = () => {
   return (

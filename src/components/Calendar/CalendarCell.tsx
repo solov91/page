@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import "./CalendarCell.scss";
 
-export const CalendarCell = () => {
+export const CalendarCell:React.FC = () => {
   return (
-    <div>CalendarCell</div>
+    <div className="calendar-cell">
+      <div className="calendar-cell__container">
+        <div className="calendar-cell__day">
+          29
+        </div>
+      </div>
+    </div>
   )
 }

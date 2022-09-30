@@ -1,7 +1,7 @@
-import './HomePage.scss';
+import React from "react";
+
+import "./HomePage.scss";
 
 export const HomePage = () => {
-  return (
-    <div className="home" />
-  );
+  return <div className="home" />;
 };

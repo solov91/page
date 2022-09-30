@@ -1,19 +1,19 @@
-import { useCallback } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useCallback } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import { signOut, User } from 'firebase/auth';
+import { signOut, User } from "firebase/auth";
 
-import { auth } from '../../firebase';
-import { routes } from '../../constants';
-import classNames from 'classnames';
+import { auth } from "../../firebase";
+import { routes } from "../../constants";
+import classNames from "classnames";
 
-import './Navigation.scss';
+import "./Navigation.scss";
 
 type NavigationProps = {
-  isAuth: User
-}
+  isAuth: User;
+};
 
-export const Navigation:React.FC<NavigationProps> = ({ isAuth }) => {
+export const Navigation: React.FC<NavigationProps> = ({ isAuth }) => {
   const navigate = useNavigate();
   const loaction = useLocation();
   console.log(isAuth);
@@ -27,32 +27,29 @@ export const Navigation:React.FC<NavigationProps> = ({ isAuth }) => {
     <div className="navigation">
       <div className="navigation__list">
         <Link
-          className={classNames(
-            'navigation__link', 
-            {'current-location': loaction.pathname === routes.home}
-          )}
+          className={classNames("navigation__link", {
+            "current-location": loaction.pathname === routes.home,
+          })}
           to={routes.home}
           tabIndex={loaction.pathname === routes.home ? -1 : 0}
         >
           Домой
         </Link>
-        {isAuth && 
+        {isAuth && (
+          <Link
+            className={classNames("navigation__link", {
+              "current-location": loaction.pathname === routes.chat,
+            })}
+            to={routes.chat}
+            tabIndex={loaction.pathname === routes.chat ? -1 : 0}
+          >
+            Чат
+          </Link>
+        )}
         <Link
-          className={classNames(
-            'navigation__link', 
-            {'current-location': loaction.pathname === routes.chat}
-          )}
-          to={routes.chat}
-          tabIndex={loaction.pathname === routes.chat ? -1 : 0}
-        >
-          Чат
-        </Link>
-        }
-        <Link
-          className={classNames(
-            'navigation__link', 
-            {'current-location': loaction.pathname === routes.calendar}
-          )}
+          className={classNames("navigation__link", {
+            "current-location": loaction.pathname === routes.calendar,
+          })}
           to={routes.calendar}
           tabIndex={loaction.pathname === routes.calendar ? -1 : 0}
         >
@@ -60,21 +57,16 @@ export const Navigation:React.FC<NavigationProps> = ({ isAuth }) => {
         </Link>
       </div>
       <div className="navigation__sing-out">
-        {isAuth ? 
-          <button
-            className="navigation__link"
-            onClick={handleSignOut}>
-              Выйти
-            </button>
-          :
-          <Link
-            className="navigation__link"
-            to={routes.authorization}
-          >
+        {isAuth ? (
+          <button className="navigation__link" onClick={handleSignOut}>
+            Выйти
+          </button>
+        ) : (
+          <Link className="navigation__link" to={routes.authorization}>
             Авторизация
           </Link>
-        }
+        )}
       </div>
     </div>
-  )
-}
+  );
+};

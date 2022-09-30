@@ -1,6 +1,7 @@
-import { useAuth } from '../../context/AuthContext';
+import React from "react";
+import { useAuth } from "context/AuthContext";
 
-import './ChatNavbar.scss';
+import "./ChatNavbar.scss";
 
 export const ChatNavbar = () => {
   const { isAuth } = useAuth();
@@ -9,9 +10,9 @@ export const ChatNavbar = () => {
     <div className="chat-navbar">
       <span className="logo">Чат</span>
       <div className="chat-navbar__user-info">
-        <img src={isAuth?.photoURL || ''} alt="" />
+        <img src={isAuth?.photoURL || ""} alt="" />
         <span>{isAuth?.displayName}</span>
       </div>
     </div>
-  )
-}
+  );
+};
