@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 
 import { onAuthStateChanged, User } from "firebase/auth";
 import { PropsWithChildren, useEffect, useState } from "react";
-import { auth } from "firebase";
+import { auth } from "../firebase";
 
 type AuthContextType = {
   isAuth: User;

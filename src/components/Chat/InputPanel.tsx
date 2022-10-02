@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
-import { db, storage } from "../../firebase";
+import { db, storage } from "../../firebase/firebase";
 
 import { useAuth } from "../../context/AuthContext";
 import { useChats } from "../../context/ChatContext";

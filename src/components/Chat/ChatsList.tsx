@@ -4,7 +4,7 @@ import { doc, DocumentData, onSnapshot } from "firebase/firestore";
 
 import { useAuth } from "context/AuthContext";
 import { useChats } from "context/ChatContext";
-import { db } from "firebase";
+import { db } from "../../firebase";
 
 export const ChatsList = () => {
   const [chatsList, setChatsList] = useState<DocumentData | undefined>([]);

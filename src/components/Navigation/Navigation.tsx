@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { signOut, User } from "firebase/auth";
 
-import { auth } from "../../firebase";
+import { auth } from "../../firebase/firebase";
 import { routes } from "../../constants";
 import classNames from "classnames";
 

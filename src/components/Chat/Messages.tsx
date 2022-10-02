@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { doc, onSnapshot, Timestamp } from "firebase/firestore";
 import { useChats } from "../../context/ChatContext";
-import { db } from "../../firebase";
+import { db } from "../../firebase/firebase";
 
 import { Message } from "./Message";
 

@@ -1,14 +1,71 @@
 @import 'src/style/color.scss';
 
-.calendar-cell {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1px;
-  color: $c_white_color;
+.cell {
+  min-height: 24px;
+	min-width: 120px;
+	background-color: #27282A;
+	color: #555759;
 
-  &__container {
-    min-height: 94px;
-    min-width: 120px;
-    background-color: $c_blue_theme_dense;
+  &__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-right: 8;
+  }
+
+  &__show-day {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__day {
+    height: 31px;
+    width: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    cursor: pointer;
+  }
+}
+
+.current-day {
+  height: 100%;
+  width: 100%;
+  background: #f00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__items {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 2px;
+    display: flex;
+  }
+
+  &__btn {
+    position: relative;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 114px;
+    border: unset;
+    color: #DDDDDD;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-color: #5d5f63;
+    border: 1px solid #5d5f63;
+    border-radius: 2px;
   }
 }

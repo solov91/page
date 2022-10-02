@@ -5,7 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-import { auth, db, storage } from "../../firebase";
+import { auth, db, storage } from "../../firebase/firebase";
 
 import Loader from "../common/Loader";
 

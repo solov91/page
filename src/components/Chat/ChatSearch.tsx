@@ -14,7 +14,7 @@ import {
 
 import defaultAvatar from "images/default-avatar.svg";
 
-import { db } from "firebase";
+import { db } from "../../firebase";
 import { useAuth } from "context/AuthContext";
 
 import "./ChatSearch.scss";
