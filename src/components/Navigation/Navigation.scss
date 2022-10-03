@@ -10,7 +10,7 @@
   align-items: center;
   padding-left: $size_sm;
   padding-right: $size_sm;
-  box-shadow: 0px 2px 6px $c_blue_theme_medium;
+  box-shadow: 0px 2px 6px $c_theme_medium;
 
   &__list {
     .navigation__link {
@@ -38,7 +38,7 @@
     }
 
     &:focus {
-      background-color: $c_blue_theme_medium;
+      background-color: $c_theme_medium;
       outline: none;
     }
   }

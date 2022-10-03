@@ -1,7 +1,8 @@
 @import 'src/style/color.scss';
 
 .calendar__title {
-  background-color: $c_blue_theme_soft;
+	background-color: $c_primary_color;
+	color: $c_theme_soft;
 	height: 36px;
 	display: flex;
 	align-items: center;

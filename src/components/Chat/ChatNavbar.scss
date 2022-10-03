@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $c_blue_theme_deep;
+  background-color: $c_theme_deep;
   height: 50px;
   padding: $size_xs;
   color: $c_white_color;
@@ -28,7 +28,7 @@
     }
 
     button {
-      background-color: $c_blue_theme_dense;
+      background-color: $c_theme_dense;
       color: $c_white_color;
       font-size: $size_xs;
       border: none;

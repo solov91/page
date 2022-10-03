@@ -15,7 +15,7 @@
     background-color: $c_white_color;
     padding: $size_md $size_4xl;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px $c_blue_theme_soft;
+    box-shadow: 5px 5px 5px $c_theme_soft;
 
     .logo {
       color: $c_primary_color;
@@ -31,7 +31,7 @@
     input {
       padding: $size_sm;
       border: none;
-      border-bottom: 1px solid $c_background;
+      border-bottom: 1px solid $c_theme_dense;
       background-color: inherit;
       min-width: 300px;
 

@@ -3,7 +3,7 @@
 
 .chat-sidebar {
   flex: 1;
-  background-color: $c_blue_theme_dense;
+  background-color: $c_theme_dense;
 }
 
 .chat-lists {
@@ -15,7 +15,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $c_blue_theme_deep;
+    background-color: $c_theme_deep;
   }
 
   img {

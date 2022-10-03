@@ -1,10 +1,9 @@
 import React from "react";
 
-import { CalendarCell } from "./CalendarCell";
 import { CalendarGridHeader } from "./CalendarGridHeader";
+import { MonthDaysList } from "./MonthDayList";
 
 import "./CalendarGrid.scss";
-import { MonthDayList } from "./MonthDayList";
 
 export const CalendarGrid: React.FC<any> = ({
   startDay,
@@ -19,8 +18,8 @@ export const CalendarGrid: React.FC<any> = ({
       <div className="grid">
         <CalendarGridHeader />
       </div>
-      <div className="gird">
-        <MonthDayList
+      <div className="grid">
+        <MonthDaysList
           totalDays={totalDays}
           openFormHandler={openFormHandler}
           events={events}

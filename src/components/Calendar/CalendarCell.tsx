@@ -1,9 +1,12 @@
+import React from "react";
+
 import {
   isSelectedMonth,
   isCurrentDay,
   DISPLAY_MODE_DAY,
 } from "../../constants";
-import React from "react";
+import classnames from "classnames";
+
 import "./CalendarCell.scss";
 
 export const CalendarCell: React.FC<any> = ({
@@ -13,8 +16,13 @@ export const CalendarCell: React.FC<any> = ({
   events,
   setDisplayMode,
 }) => {
+  const monthColor = isSelectedMonth(dayItem, today);
+
   return (
-    <div className="cell" key={dayItem.unix()}>
+    <div
+      className={classnames("cell", { "current-month": monthColor })}
+      key={dayItem.unix()}
+    >
       <div className="cell__row">
         <div className="cell__show-day">
           <div
